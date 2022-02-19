@@ -1,5 +1,9 @@
 {
   "manifest_version": 2,
   "name": "Reduce Twitter",
-  "version": "0.0.1"
+  "version": "0.0.1",
+  "browser_action": {
+    "default_title": "Reduce Twitter",
+    "default_popup": "popup/popup.html"
+  }
 }
