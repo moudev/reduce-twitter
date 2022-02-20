@@ -5,5 +5,10 @@
   "browser_action": {
     "default_title": "Reduce Twitter",
     "default_popup": "popup/popup.html"
+  },
+
+  "background": {
+    "scripts": ["background.js"]
   }
+
 }
