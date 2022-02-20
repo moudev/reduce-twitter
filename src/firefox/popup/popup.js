@@ -1,3 +1,4 @@
+import { updateAction, getTabs } from "../utils.js"
 import defaultActions from "../data.js"
 
 async function createMenu() {
@@ -36,7 +37,18 @@ async function createMenu() {
   })
 }
 
-function init() {
+async function init() {
+  const container = document.querySelector("#rules")
+  container.addEventListener("click", updateAction)
+    
+  const tabs = await getTabs()
+
+  // the active tab must be twitter.com to display the menu
+  if (tabs.length === 0) {
+    container.innerHTML = "No twitter"  
+    return
+  }
+  
   createMenu()
 }
 
