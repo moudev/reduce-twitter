@@ -1,3 +1,71 @@
+:root {
+  --form-control-color: rgb(29, 155, 240);
+}
+
+*,
+*:before,
+*:after {
+box-sizing: border-box;
+}
+
 body {
-  border: 1px solid red;
+  padding: 0.5rem 1rem 2rem 1rem;
+  font-family: system-ui, sans-serif;
+}
+
+.inputs-container {
+  display: flex;
+  align-items: center;
+}
+
+/* copy of: https://moderncss.dev/pure-css-custom-checkbox-style/ */
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+  margin-right: 5px;
+  font: inherit;
+  color: var(--form-control-color);
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid var(--form-control-color);
+  border-radius: 0.15em;
+  transform: translateY(-0.075em);
+  display: grid;
+  place-content: center;
+}
+
+input[type="checkbox"] + label {
+  margin-right: 15px;
+}
+
+input[type="checkbox"],
+input[type="checkbox"] + label {
+  cursor: pointer;
+}
+
+input[type="checkbox"]:checked {
+  background-color: var(--form-control-color);
+}
+
+input[type="checkbox"]::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+  transform: scale(0);
+  transform-origin: bottom left;
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em white;
+  /* Windows High Contrast Mode */
+  background-color: white;
+}
+
+input[type="checkbox"]:checked::before {
+  transform: scale(1);
+}
+
+input[type="checkbox"]:focus {
+  outline: max(2px, 0.1em) solid currentColor;
+  outline-offset: max(2px, 0.1em);
 }
