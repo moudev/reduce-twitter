@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build:firefox": "web-ext build --source-dir ./src/firefox"
+    "build:firefox": "web-ext build --source-dir ./src/firefox --artifacts-dir ./src/firefox/build"
   },
   "devDependencies": {
     "web-ext": "^6.7.0"
