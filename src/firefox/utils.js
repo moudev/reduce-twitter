@@ -1,6 +1,23 @@
 import defaultActions from "./data.js"
 
-const actions = defaultActions
+function manageLocalStorage(action = "get", data = null, key = "actions") {
+  if (action === "get") {
+    return browser.storage.local.get(key).then((res) => {
+        const keys = Object.keys(res)
+        return Promise.resolve(res[keys[0]])
+      })
+  } else if(action === "set") {  
+    return browser.storage.local.set({ [key]: data })
+  }
+}
+
+async function getActions() {
+  const storageActions = await manageLocalStorage("get")  
+  if (storageActions && storageActions.length > 0) {
+    return storageActions
+  }
+  return defaultActions
+}
 
 function getTabs() {
   return browser.tabs.query({
@@ -11,6 +28,8 @@ function getTabs() {
 
 async function updateCSS () {
   const tabs = await getTabs()
+
+  const actions = await getActions()
   
   if (tabs.length === 0) return
   
@@ -37,8 +56,10 @@ async function updateCSS () {
   browser.tabs.insertCSS(tab.id, { code: css }); 
 }
 
-function updateAction(e) {
+async function updateAction(e) {
   if (e.target.type !== "checkbox") return
+
+  const actions = await getActions()  
 
   const checked = e.target.checked
   const [action, rule] = e.target.id.split("-")
@@ -48,7 +69,9 @@ function updateAction(e) {
 
   actions[actionIndex].rules[ruleIndex].apply = checked
 
+  await manageLocalStorage("set", actions)  
+
   updateCSS()
 }
 
-export { updateAction, getTabs }
+export { updateAction, getTabs, getActions, updateCSS }

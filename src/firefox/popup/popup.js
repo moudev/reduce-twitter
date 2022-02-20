@@ -1,10 +1,9 @@
-import { updateAction, getTabs } from "../utils.js"
-import defaultActions from "../data.js"
+import { updateAction, getTabs, getActions, updateCSS } from "../utils.js"
 
 async function createMenu() {
   const container = document.querySelector("#rules")
 
-  const actions = defaultActions
+  const actions = await getActions()
 
   actions.map(action => {
     const ruleContainer = document.createElement("div")
@@ -40,7 +39,7 @@ async function createMenu() {
 async function init() {
   const container = document.querySelector("#rules")
   container.addEventListener("click", updateAction)
-    
+
   const tabs = await getTabs()
 
   // the active tab must be twitter.com to display the menu
@@ -49,7 +48,8 @@ async function init() {
     return
   }
   
-  createMenu()
+  await createMenu()
+  updateCSS()
 }
 
 init()
