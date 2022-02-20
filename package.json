@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "build:firefox": "web-ext build --source-dir ./src/firefox"
+  },
+  "devDependencies": {
+    "web-ext": "^6.7.0"
+  }
+}
