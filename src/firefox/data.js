@@ -13,14 +13,14 @@ const defaultActions = [
     rules: [
       {
         id: "hide",
-        screenName: "Hide",
+        screenName: "Ocultar",
         default: "display: flex!important;",
         value: "display: none!important;",
         apply: true,
       },
       {
         id: "deactivate",
-        screenName: "Deactivate",
+        screenName: "Desactivar",
         default: "pointer-events: auto!important;",
         value: "pointer-events: none!important;",
         apply: false,
@@ -34,14 +34,14 @@ const defaultActions = [
     rules: [
       {
         id: "hide",
-        screenName: "Hide",
+        screenName: "Ocultar",
         default: "display: flex!important;",
         value: "display: none!important;",
         apply: false,
       },
       {
         id: "deactivate",
-        screenName: "Deactivate",
+        screenName: "Desactivar",
         default: "pointer-events: auto!important;",
         value: "pointer-events: none!important;",
         apply: false,
@@ -55,14 +55,14 @@ const defaultActions = [
     rules: [
       {
         id: "hide",
-        screenName: "Hide",
+        screenName: "Ocultar",
         default: "display: flex!important;",
         value: "display: none!important;",
         apply: false,
       },
       {
         id: "deactivate",
-        screenName: "Deactivate",
+        screenName: "Desactivar",
         default: "pointer-events: auto!important;",
         value: "pointer-events: none!important;",
         apply: false,
@@ -78,14 +78,14 @@ const defaultActions = [
     rules: [
       {
         id: "hide",
-        screenName: "Hide",
+        screenName: "Ocultar",
         default: "display: flex!important;",
         value: "display: none!important;",
         apply: false,
       },
       {
         id: "deactivate",
-        screenName: "Deactivate",
+        screenName: "Desactivar",
         default: "pointer-events: auto!important;",
         value: "pointer-events: none!important;",
         apply: false,

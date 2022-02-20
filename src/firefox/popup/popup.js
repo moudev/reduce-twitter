@@ -13,6 +13,9 @@ async function createMenu() {
     
     ruleContainer.appendChild(title)
 
+    const inputsContainer = document.createElement("div")
+    inputsContainer.classList.add("inputs-container")
+
     action.rules.map((rule) => {
       const ruleNode = document.createElement("p")
       ruleNode.textContent = rule.screenName
@@ -28,10 +31,11 @@ async function createMenu() {
       label.textContent = rule.screenName
       label.setAttribute("for", idAttribute)
 
-      ruleContainer.appendChild(check)
-      ruleContainer.appendChild(label)
+      inputsContainer.appendChild(check)
+      inputsContainer.appendChild(label)
     })
 
+    ruleContainer.appendChild(inputsContainer)
     container.appendChild(ruleContainer)
   })
 }
